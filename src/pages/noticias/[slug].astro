@@ -2,21 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { newsCards } from "../../data/news.ts";
 import { Image } from "astro:assets";
-
-// Función para convertir títulos a slugs URL-friendly
-function slugify(text: string): string {
-    return text
-        .toString()
-        .normalize("NFD") // Normalizar caracteres Unicode
-        .replace(/[\u0300-\u036f]/g, "") // Eliminar acentos
-        .toLowerCase()
-        .trim()
-        .replace(/\s+/g, "-") // Reemplazar espacios con guiones
-        .replace(/[^\w\-]+/g, "") // Eliminar caracteres especiales
-        .replace(/\-\-+/g, "-") // Reemplazar múltiples guiones con uno solo
-        .replace(/^-+/, "") // Eliminar guiones al inicio
-        .replace(/-+$/, ""); // Eliminar guiones al final
-}
+import { slugify } from "../../utils/slugify.ts";
 
 // Generar rutas estáticas para cada noticia
 export async function getStaticPaths() {
