@@ -1,15 +1,10 @@
-@import "@fontsource/rubik-mono-one";
-@import "@fontsource-variable/manrope";
 @import "@fontsource-variable/cormorant";
 @import "@fontsource-variable/work-sans";
-@import "@fontsource-variable/rubik";
 @import "@fontsource/rubik-one";
 
 @import "tailwindcss";
 
 @theme {
-    --font-rubik-mono: "Rubik Mono One", sans-serif;
-    --font-rubik-other: "Rubik Variable", sans-serif;
     --font-rubik: "Rubik One", sans-serif;
     --font-manrope: "Manrope", sans-serif;
     --font-cormorant: "Cormorant Variable", serif;

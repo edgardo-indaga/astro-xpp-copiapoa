@@ -1,19 +1,128 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Favicon - Múltiples formatos para compatibilidad -->
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         <meta name="generator" content={Astro.generator} />
-        <title>XPP Copiapoa</title>
+
+        <!-- SEO Meta Tags -->
+        <title>
+            XPP Copiapoa - Programa de Prevención de la Extinción de Cactus Copiapoa en el Desierto
+            de Atacama
+        </title>
+        <meta
+            name="description"
+            content="Proyecto de conservación de cactus Copiapoa en el desierto de Atacama, Chile. Investigación, restauración y protección de especies endémicas en peligro crítico de extinción."
+        />
+        <meta
+            name="keywords"
+            content="cactus copiapoa, conservación copiapoa, desierto de atacama, especies endémicas chile, biodiversidad norte de chile, extinción copiapoa, restauración ecosistemas áridos, conservación ex situ, centinelas de atacama, IEB, cienciambiental, insular chile, BHP, camanchaca, flora nativa chile, tráfico ilegal cactus, cambio climático atacama, viveros cactus, patrimonio natural chile"
+        />
+        <meta name="author" content="Crow Advance" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="Spanish" />
+        <meta name="revisit-after" content="7 days" />
+
+        <!-- Geo Tags -->
+        <meta name="geo.region" content="CL-AT" />
+        <meta name="geo.placename" content="Desierto de Atacama, Chile" />
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://xppcopiapoa.cl" />
+
+        <!-- Hreflang -->
+        <link rel="alternate" hreflang="es-cl" href="https://xppcopiapoa.cl" />
+        <link rel="alternate" hreflang="es" href="https://xppcopiapoa.cl" />
+        <link rel="alternate" hreflang="x-default" href="https://xppcopiapoa.cl" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://xppcopiapoa.cl" />
+        <meta
+            property="og:title"
+            content="XPP Copiapoa - Prevención de la Extinción de Cactus Copiapoa"
+        />
+        <meta
+            property="og:description"
+            content="Proyecto de conservación de cactus Copiapoa en el desierto de Atacama. Investigación, restauración y protección de especies endémicas en peligro de extinción."
+        />
+        <meta property="og:image" content="https://xppcopiapoa.cl/og-image.jpg" />
+        <meta property="og:locale" content="es_CL" />
+        <meta property="og:site_name" content="XPP Copiapoa" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://xppcopiapoa.cl" />
+        <meta
+            name="twitter:title"
+            content="XPP Copiapoa - Prevención de la Extinción de Cactus Copiapoa"
+        />
+        <meta
+            name="twitter:description"
+            content="Proyecto de conservación de cactus Copiapoa en el desierto de Atacama. Investigación, restauración y protección de especies endémicas."
+        />
+        <meta name="twitter:image" content="https://xppcopiapoa.cl/og-image.jpg" />
+
+        <!-- Schema.org Markup -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "XPP Copiapoa",
+                "description": "Programa de Prevención de la Extinción de Cactus Copiapoa",
+                "url": "https://xppcopiapoa.cl",
+                "logo": "https://xppcopiapoa.cl/favicon.png",
+                "sameAs": [],
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "CL",
+                    "addressRegion": "Región de Atacama"
+                },
+                "areaServed": {
+                    "@type": "Place",
+                    "name": "Desierto de Atacama, Chile"
+                },
+                "knowsAbout": [
+                    "Conservación de especies endémicas",
+                    "Cactus Copiapoa",
+                    "Biodiversidad del desierto de Atacama",
+                    "Restauración de ecosistemas áridos"
+                ],
+                "member": [
+                    {
+                        "@type": "Organization",
+                        "name": "Cienciambiental"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "Instituto de Ecología y Biodiversidad (IEB)"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "Insular Chile"
+                    }
+                ],
+                "funder": {
+                    "@type": "Organization",
+                    "name": "BHP - Fondo de Inversión Social"
+                }
+            }
+        </script>
     </head>
     <body>
         <Header />
         <slot />
+        <Footer />
     </body>
 </html>
