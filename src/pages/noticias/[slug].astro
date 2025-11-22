@@ -1,3 +1,77 @@
 ---
+import Layout from "../../layouts/Layout.astro";
+import { newsCards } from "../../data/news.ts";
+import { Image } from "astro:assets";
 
+// Función para convertir títulos a slugs URL-friendly
+function slugify(text: string): string {
+    return text
+        .toString()
+        .normalize("NFD") // Normalizar caracteres Unicode
+        .replace(/[\u0300-\u036f]/g, "") // Eliminar acentos
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, "-") // Reemplazar espacios con guiones
+        .replace(/[^\w\-]+/g, "") // Eliminar caracteres especiales
+        .replace(/\-\-+/g, "-") // Reemplazar múltiples guiones con uno solo
+        .replace(/^-+/, "") // Eliminar guiones al inicio
+        .replace(/-+$/, ""); // Eliminar guiones al final
+}
+
+// Generar rutas estáticas para cada noticia
+export async function getStaticPaths() {
+    return newsCards.map((noticia) => ({
+        params: { slug: slugify(noticia.title) },
+        props: { noticia },
+    }));
+}
+
+// Obtener la noticia desde las props
+const { noticia } = Astro.props;
 ---
+
+<Layout title={noticia.title}>
+    <section class="py-14 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- Imagen principal -->
+            <div class="max-w-4xl mx-auto mb-8">
+                <Image
+                    src={noticia.image}
+                    alt={noticia.title}
+                    width={2000}
+                    height={1333}
+                    class="rounded-[22px] w-full h-auto object-cover shadow-lg"
+                />
+            </div>
+
+            <!-- Contenido de la noticia -->
+            <article class="max-w-3xl mx-auto bg-white rounded-[22px] p-8 shadow-md">
+                <!-- Fecha -->
+                <p class="text-[#8B8B8B] text-[14px] font-manrope leading-normal mb-4">
+                    {noticia.date}
+                </p>
+
+                <!-- Título -->
+                <h1 class="text-negro font-manrope text-[32px] leading-[42px] font-bold mb-6">
+                    {noticia.title}
+                </h1>
+
+                <!-- Descripción completa con HTML -->
+                <div
+                    class="text-negro font-manrope text-[18px] font-normal leading-relaxed prose prose-lg max-w-none"
+                    set:html={noticia.description}
+                />
+
+                <!-- Botón volver -->
+                <div class="mt-10 flex justify-center">
+                    <a
+                        href="/#noticias"
+                        class="bg-xc-azul text-center text-white rounded-[35px] px-8 py-3 font-manrope text-[16px] leading-normal font-normal hover:bg-xc-azul/75 transition-colors"
+                    >
+                        ← Volver a noticias
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+</Layout>

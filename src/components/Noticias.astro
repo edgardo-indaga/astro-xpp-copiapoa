@@ -3,6 +3,21 @@ import { Image } from "astro:assets";
 import NoticiasImg from "../assets/images/noticias.webp";
 
 import { newsCards } from "../data/news.ts";
+
+// Función para convertir títulos a slugs URL-friendly (debe coincidir con [slug].astro)
+function slugify(text: string): string {
+    return text
+        .toString()
+        .normalize("NFD") // Normalizar caracteres Unicode
+        .replace(/[\u0300-\u036f]/g, "") // Eliminar acentos
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, "-") // Reemplazar espacios con guiones
+        .replace(/[^\w\-]+/g, "") // Eliminar caracteres especiales
+        .replace(/\-\-+/g, "-") // Reemplazar múltiples guiones con uno solo
+        .replace(/^-+/, "") // Eliminar guiones al inicio
+        .replace(/-+$/, ""); // Eliminar guiones al final
+}
 ---
 
 <section
@@ -36,7 +51,7 @@ import { newsCards } from "../data/news.ts";
                             {card.extract.slice(0, 158)}...
                         </p>
                         <a
-                            href={`/noticias/${card.title}`}
+                            href={`/noticias/${slugify(card.title)}`}
                             class="bg-xc-azul text-center text-white rounded-[35px] p-[10px] font-manrope text-[16px] leading-normal font-normal hover:bg-xc-azul/75"
                         >
                             Leer más
