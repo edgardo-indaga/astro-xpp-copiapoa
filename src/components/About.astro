@@ -1,0 +1,82 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+import AboutImg from "../assets/images/about.webp";
+import cienciaAmbientaImg from "../assets/images/cienciaambiental.png";
+import iebImg from "../assets/images/ieb.png";
+import insularImg from "../assets/images/insular.png";
+
+interface TeamInterface {
+    image: ImageMetadata;
+    name: string;
+    position: string;
+}
+
+const teams: TeamInterface[] = [
+    {
+        image: cienciaAmbientaImg,
+        name: "Marcela Torres",
+        position: "Bióloga Ambiental MgCs Ecología y Mg Gestión ambiental",
+    },
+    {
+        image: iebImg,
+        name: "Pablo Guerrero",
+        position: "Biólogo, PhD Ecología",
+    },
+    {
+        image: insularImg,
+        name: "Iñigo Ricalde",
+        position: "Ingeniero Civil, MgCs Hidrología y gestión de recursos hídricos",
+    },
+];
+---
+
+<section
+    style={`background-image: url(${AboutImg.src}); background-size: cover; background-position: center;`}
+    class="py-[130px]"
+>
+    <div class="container mx-auto">
+        <div class="grid grid-cols-2">
+            <div class="flex flex-col items-center justify-center gap-6 pr-[90px]">
+                <h1
+                    class="font-rubik text-white text-center text-[38px] leading-[44px] font-normal"
+                >
+                    QUIÉNES SOMOS
+                </h1>
+                <p class="text-[16px] font-manrope leading-normal font-normal text-white">
+                    El proyecto Extinction Prevention Program XPP Copiapoa, está liderado por la
+                    consultora Cienciambiental, el Instituto de Ecología y Biodiversidad (IEB) y la
+                    empresa B Insular Chile, y que cuenta con el apoyo del fondo de inversión social
+                    de BHP.
+                </p>
+                <p class="text-[16px] font-manrope leading-normal font-normal text-white">
+                    La ejecución del proyecto está a cargo de un equipo multidisciplinario de más de
+                    20 profesionales en áreas como ecología, conservación ex situ, restauración,
+                    propagación y gestión ambiental.
+                </p>
+            </div>
+            <div class="bg-xc-hueso rounded-[22px] p-[30px] flex flex-col gap-[25px]">
+                <h4 class="font-rubik text-[16px] font-normal leading-normal uppercase">
+                    Equipo Directivo
+                </h4>
+
+                {
+                    teams.map((team) => (
+                        <div class="flex flex-row items-center">
+                            <Image src={team.image} alt={team.name} width={135} height={120} />
+                            <div class="pl-[35px]">
+                                <h4 class="font-manrope text-[20px] font-bold leading-normal">
+                                    {team.name}
+                                </h4>
+                                <p class="text-[16px] font-manrope font-normal leading-normal">
+                                    {team.position}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>

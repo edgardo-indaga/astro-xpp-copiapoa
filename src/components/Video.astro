@@ -1,0 +1,163 @@
+---
+/**
+ * Componente Video con integración de Cloudinary
+ *
+ * Uso:
+ * <Video
+ *   src="nombre-del-video"
+ *   width={1920}
+ *   height={1080}
+ * />
+ *
+ * El 'src' debe ser el Public ID del video en Cloudinary
+ * (por ejemplo: "videos/mi-video" o "mi-video")
+ */
+
+import { CldVideoPlayer } from "astro-cloudinary";
+
+interface Props {
+    /** Public ID del video en Cloudinary */
+    src: string;
+
+    /** Ancho del video en píxeles */
+    width?: number;
+
+    /** Alto del video en píxeles */
+    height?: number;
+
+    /** Reproducir automáticamente al cargar */
+    autoplay?: boolean;
+
+    /** Silenciar el audio */
+    muted?: boolean;
+
+    /** Repetir el video en bucle */
+    loop?: boolean;
+
+    /** Mostrar controles de reproducción */
+    controls?: boolean;
+
+    /** URL o configuración del poster/thumbnail */
+    poster?: string;
+
+    /** Clase CSS adicional para el contenedor */
+    className?: string;
+}
+
+const {
+    src,
+    width = 1920,
+    height = 1080,
+    autoplay = false,
+    muted = false,
+    loop = false,
+    controls = true,
+    poster,
+    className = "",
+} = Astro.props;
+
+// Transformaciones para optimización automática
+const transformation = {
+    quality: "auto", // Cloudinary optimiza la calidad automáticamente
+    fetch_format: "auto", // Selecciona el mejor formato/codec automáticamente
+};
+---
+
+<section class="bg-xc-hueso py-[70px] h-[800px]">
+    <div class="container mx-auto">
+        <div class={`relative w-full max-w-full ${className}`}>
+            <CldVideoPlayer
+                src={src}
+                width={width}
+                height={height}
+                autoplay={autoplay}
+                muted={muted}
+                loop={loop}
+                controls={controls}
+                poster={poster}
+                transformation={transformation}
+            />
+        </div>
+    </div>
+</section>
+
+<style is:global>
+    /* Hace que el video player de Cloudinary sea responsivo */
+    .cld-video-player,
+    .cld-video-player video {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* ============================================
+       PERSONALIZACIÓN DEL BOTÓN DE PLAY
+       Borde blanco 4px, fondo transparente
+       ============================================ */
+
+    /* Base del botón de play */
+    .vjs-big-play-button {
+        /* Estructura visual */
+        border: 6px solid #ffffff !important;
+        background-color: transparent !important;
+        border-radius: 50%; /* Botón circular */
+
+        /* Tamaño */
+        width: 100px !important;
+        height: 100px !important;
+
+        /* Posicionamiento centrado fijo */
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+
+        /* Eliminar márgenes y paddings */
+        margin: 0 !important;
+        padding: 0 !important;
+
+        /* Eliminar sombras default */
+        box-shadow: none !important;
+
+        /* Display y alineación */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        /* Optimización de rendimiento */
+        will-change: transform;
+
+        /* Transiciones suaves */
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Estados hover */
+    .vjs-big-play-button:hover,
+    .video-js:hover .vjs-big-play-button,
+    .vjs-big-play-button:focus {
+        background-color: transparent !important;
+        opacity: 0.85;
+        transform: translate(-50%, -50%) scale(1.1) !important;
+        border-color: #ffffff !important;
+    }
+
+    /* Ícono de play (triángulo) */
+    .vjs-big-play-button .vjs-icon-placeholder::before {
+        /* Color del ícono */
+        color: #ffffff;
+
+        /* Tamaño del ícono */
+        font-size: 2.5em;
+
+        /* Remover sombras */
+        text-shadow: none;
+
+        /* Centrado perfecto del ícono */
+        display: block;
+        line-height: 1;
+    }
+
+    /* Estado hover del ícono */
+    .vjs-big-play-button:hover .vjs-icon-placeholder::before {
+        color: #ffffff;
+    }
+</style>

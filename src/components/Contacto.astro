@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import FormContacto from "./FormContacto.astro";
+
+import logoContacto from "../assets/images/logo-footer.svg";
+import logoSponsor01 from "../assets/images/iconoFooter01.png";
+import logoSponsor02 from "../assets/images/iconoFooter02.png";
+import logoSponsor03 from "../assets/images/iconoFooter03.png";
+import logoSponsor04 from "../assets/images/iconoFooter04.png";
+---
+
+<section class="bg-xc-negro py-[60px]">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-3">
+            <div class="col-span-1">
+                <Image src={logoContacto} alt="Logo Contacto" width={230} height={126} />
+                <div
+                    class="flex flex-wrap gap-2 border-t-1 border-[#6A6A6A] mt-[16px] pt-[16px] items-center"
+                >
+                    <Image
+                        src={logoSponsor01}
+                        alt="Logo Sponsor"
+                        width={90}
+                        height={36}
+                        class="w-[90px] h-[36px]"
+                    />
+                    <Image
+                        src={logoSponsor02}
+                        alt="Logo Sponsor"
+                        width={60}
+                        height={40}
+                        class="w-[60px] h-[40px]"
+                    />
+                    <Image
+                        src={logoSponsor03}
+                        alt="Logo Sponsor"
+                        width={144}
+                        height={16}
+                        class="w-[144px] h-[16px]"
+                    />
+                    <Image
+                        src={logoSponsor04}
+                        alt="Logo Sponsor"
+                        width={54}
+                        height={54}
+                        class="w-[54px] h-[54px]"
+                    />
+                </div>
+            </div>
+            <div class="col-span-1"></div>
+            <div class="col-span-1">
+                <FormContacto />
+            </div>
+        </div>
+    </div>
+</section>

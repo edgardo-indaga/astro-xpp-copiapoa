@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import CactusCopiapoaImg from "../assets/images/cactus_copiapoa.webp";
+---
+
+<section
+    style={`background-image: url(${CactusCopiapoaImg.src}); background-size: cover; background-position: center;`}
+    class="py-20"
+>
+    <div class="container mx-auto">
+        <div class="flex flex-col justify-center items-center h-[800px]">
+            <h1
+                class="font-rubik text-[80px] leading-[70px] font-normal text-xc-azul text-center w-[400px]"
+            >
+                Cactus Copiapoa
+            </h1>
+            <div class="flex flex-col items-center justify-center gap-6 mt-[50px] w-[700px]">
+                <p class="text-negro font-manrope text-[16px] text-center">
+                    Copiapoa es un <b>género de cactus endémico del desierto costero de Atacama</b>.
+                    Existen más de treinta especies, muchas de ellas con distribuciones
+                    extremadamente restringidas.
+                </p>
+                <p class="text-negro font-manrope text-[16px] text-center">
+                    Se han adaptado para sobrevivir en condiciones de extrema sequía y alta
+                    radiación solar. Su crecimiento es muy lento y pueden vivir cientos de años,
+                    obteniendo agua principalmente de la camanchaca.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

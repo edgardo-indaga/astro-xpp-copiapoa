@@ -1,11 +1,51 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Slider from "../components/Slider.astro";
+import CactusCopiapoa from "../components/CactusCopiapoa.astro";
+import Centinelas from "../components/Centinelas.astro";
+import Video from "../components/Video.astro";
+import WeDo from "../components/WeDo.astro";
+import Noticias from "../components/Noticias.astro";
+import About from "../components/About.astro";
+import Contacto from "../components/Contacto.astro";
+import Fotter from "../components/Fotter.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import sliderUno from "../assets/images/slider_1.webp";
+import sliderDos from "../assets/images/slider_2.webp";
+import sliderTres from "../assets/images/slider_3.webp";
+
+// Define las 3 imágenes para el slider
+// IMPORTANTE: Reemplaza estas rutas con tus imágenes de cactus Copiapoa
+const slides = [
+    {
+        image: sliderUno,
+        alt: "Cactus Copiapoa en su hábitat natural",
+    },
+    {
+        image: sliderDos,
+        alt: "Conservación de cactus Copiapoa",
+    },
+    {
+        image: sliderTres,
+        alt: "Prevención de la extinción de Copiapoa",
+    },
+];
 ---
 
 <Layout>
-	<Welcome />
+    <Slider
+        slides={slides}
+        title="Prevención de la extinción de los cactus Copiapoa"
+        buttonText="¿Qué hacemos?"
+        buttonLink="#que-hacemos"
+        autoPlayInterval={5000}
+    />
+    <CactusCopiapoa />
+    <Centinelas />
+    <Video src="copiapoa-2_ciy1fr" />
+    <WeDo />
+    <Noticias />
+    <About />
+    <Contacto />
+    <Fotter />
 </Layout>

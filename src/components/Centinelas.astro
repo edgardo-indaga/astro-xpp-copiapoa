@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import CentinelasImg from "../assets/images/centinelas.webp";
+import AdvertenciaImg from "../assets/images/advertencia.svg";
+
+interface PuntosClaveInterface {
+    title: string;
+    description: string;
+}
+
+const PuntosClave: PuntosClaveInterface[] = [
+    {
+        title: "MICROHÁBITATS ESENCIALES",
+        description: "Sirven de refugio y alimento a fauna y microbiota del desierto.",
+    },
+    {
+        title: "PATRIMONIO DEL NORTE DE CHILE",
+        description: "Son un símbolo de la identidad natural y cultural del norte de Chile.",
+    },
+    {
+        title: "BIODIVERSIDAD EN RIESGO",
+        description: "Varias especies están en peligro crítico de extinción.",
+    },
+    {
+        title: "AMENAZAS CRECIENTES",
+        description: "Están amenazados por el cambio climático y el tráfico ilegal.",
+    },
+];
+---
+
+<section class="bg-xc-verde py-[50px]">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-10">
+            <div class="col-span-4">
+                <div
+                    style={`background-image: url(${CentinelasImg.src}); background-size: cover; background-position: center;`}
+                    class="w-[444px] h-[650px] flex flex-row justify-center pt-[100px]"
+                >
+                    <h1 class="font-rubik text-[38px] leading-[44px] text-xc-azul px-[85px]">
+                        CENTINELAS DE ATACAMA
+                    </h1>
+                </div>
+            </div>
+            <div class="col-span-6 flex flex-col justify-between py-[40px] pl-[100px]">
+                <h1 class="font-manrope text-[24px] leading-[33px] text-white">
+                    Puntos clave para entender la <b>importancia</b> de los <b>cactus Copiapoa</b>
+                </h1>
+                <div class="flex flex-col justify-between gap-4">
+                    {
+                        PuntosClave.map((item) => (
+                            <div>
+                                <h4 class="text-white font-rubik text-[18px] leading-[28px]">
+                                    {item.title}
+                                </h4>
+                                <p class="text-xc-hueso font-manrope text-[16px] leading-normal font-normal">
+                                    {item.description}
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
+                <div
+                    class="border-[1px] border-xc-hueso rounded-[22px] py-[25px] px-[20px] flex flex-row items-center gap-6 w-[530px]"
+                >
+                    <Image src={AdvertenciaImg} alt="Advertencia" width={60} height={60} />
+                    <p class="text-xc-hueso font-manrope text-[16px] leading-normal font-normal">
+                        Nos enfrentamos a la desaparición de una parte irremplazable del patrimonio
+                        natural y cultural del desierto de Atacama.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

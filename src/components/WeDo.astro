@@ -1,0 +1,74 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import WeDoImg from "../assets/images/wedo.webp";
+
+import itemUnoImg from "../assets/images/item01-wedo.svg";
+import itemDosImg from "../assets/images/item02-wedo.svg";
+import itemTresImg from "../assets/images/item03-wedo.svg";
+import itemCuatroImg from "../assets/images/item04-wedo.svg";
+
+interface ItemsDoInterface {
+    image: ImageMetadata;
+    title: string;
+    description: string;
+}
+
+const Items: ItemsDoInterface[] = [
+    {
+        image: itemUnoImg,
+        title: "INVESTIGACIÓN",
+        description:
+            "El estudio del género Copiapoa y su relación con el entorno nos permite <b>conocer cómo se desempeñan en determinados contextos, evaluar el impacto del cambio climático y conocer las condiciones óptimas</b> para su conservación y propagación.",
+    },
+    {
+        image: itemDosImg,
+        title: "RESTAURACIÓN",
+        description:
+            "La recolección de semillas y la implementación de viveros permite <b>conservar y reproducir los cactus Copiapoa y otras especies nativas amenazadas</b>, para su futura propagación en ambientes silvestres y la restauración de ecosistemas áridos.",
+    },
+    {
+        image: itemTresImg,
+        title: "DESARROLLO LOCAL",
+        description:
+            "El conocimiento y valoración de los cactus Copiapoa en las comunidades locales y la identificación de oportunidades de emprendimiento sostenible asociadas, aportan al <b>cuidado colectivo de las especies y al desarrollo local</b>.",
+    },
+    {
+        image: itemCuatroImg,
+        title: "TRABAJO EN RED",
+        description:
+            "La conservación de los cactus Copiapoa solo es posible mediante la <b>colaboración del sector público, mundo científico, comunidades locales, y sector privado</b>.",
+    },
+];
+---
+
+<section
+    style={`background-image: url(${WeDoImg.src}) ;background-size: cover; background-position: center;`}
+    class="py-[70px] h-[800px]"
+>
+    <div class="container mx-auto">
+        <div class="flex flex-col items-center justify-center">
+            <h1
+                class="font-rubik text-xc-hueso text-center text-[38px] leading-[44px] font-normal py-[60px]"
+            >
+                ¿QUÉ HACEMOS?
+            </h1>
+        </div>
+        <div class="flex flex-row justify-between gap-4">
+            {
+                Items.map((item) => (
+                    <div class="border-[1px] border-xc-azul rounded-[22px] py-[30px] px-[22px] bg-[#F5F5F5] w-[264px] h-[380px]">
+                        <Image src={item.image} alt={item.title} width={73} height={73} />
+                        <h4 class="font-rubik text-xc-azul text-[18px] leading-[28px] py-[15px]">
+                            {item.title}
+                        </h4>
+                        <p
+                            set:html={item.description}
+                            class="font-manrope text-[14px] font-normal leading-normal"
+                        />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
