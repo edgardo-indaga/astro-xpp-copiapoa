@@ -1,0 +1,20 @@
+# robots.txt para XPP Copiapoa
+# https://www.xppcopiapoa.cl/
+
+# Permitir acceso a todos los bots
+User-agent: *
+Allow: /
+
+# Bloquear acceso a archivos de sistema y privados
+Disallow: /api/
+Disallow: /_astro/
+
+# Permitir acceso explícito a secciones importantes
+Allow: /noticias/
+
+# Permitir imágenes para Google Images
+User-agent: Googlebot-Image
+Allow: /
+
+# Sitemap
+Sitemap: https://www.xppcopiapoa.cl/sitemap-index.xml
