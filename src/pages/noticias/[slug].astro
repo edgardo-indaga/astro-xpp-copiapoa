@@ -19,10 +19,10 @@ const { noticia } = Astro.props;
 
 <Layout title={noticia.title}>
     <section class="bg-xc-hueso">
-        <div class="container mx-auto pb-[60px]">
+        <div class="container mx-auto px-4 pb-10 sm:pb-12 md:pb-[60px]">
             <!-- Breadcrumbs -->
-            <nav class="text-[14px] font-manrope text-xc-negro py-4" aria-label="Breadcrumb">
-                <ol class="list-reset flex">
+            <nav class="text-xs sm:text-sm md:text-[14px] font-manrope text-xc-negro py-3 md:py-4" aria-label="Breadcrumb">
+                <ol class="list-reset flex flex-wrap">
                     <li>
                         <a href="/" class="hover:underline">Inicio</a>
                     </li>
@@ -41,31 +41,31 @@ const { noticia } = Astro.props;
                     alt={noticia.title}
                     width={2000}
                     height={1333}
-                    class="rounded-[10px] w-full h- object-cover shadow-lg h-[330px]"
+                    class="rounded-[10px] w-full object-cover shadow-lg h-[200px] sm:h-[280px] md:h-[330px]"
                 />
             </div>
 
             <div>
                 <!-- Fecha -->
-                <p class="text-xc-gris text-[14px] font-manrope leading-normal py-[25px]">
+                <p class="text-xc-gris text-xs sm:text-sm md:text-[14px] font-manrope leading-normal py-4 sm:py-5 md:py-[25px]">
                     {noticia.date}
                 </p>
                 <!-- Título -->
-                <h3 class="text-xc-azul font-manrope text-[20px] leading-normal font-semibold">
+                <h3 class="text-xc-azul font-manrope text-lg sm:text-xl md:text-[20px] leading-normal font-semibold">
                     {noticia.title}
                 </h3>
                 <!-- Descripción completa con HTML -->
                 <div
                     set:html={noticia.description}
-                    class="py-[25px] text-xc-negro text-[16px] leading-normal font-normal"
+                    class="py-4 sm:py-5 md:py-[25px] text-xc-negro text-[16px] leading-normal font-normal"
                 />
                 <!-- Gallery -->
                 {noticia.gallery && <Gallery images={noticia.gallery} />}
                 <!-- Botón volver -->
-                <div class="mt-10 flex">
+                <div class="mt-8 sm:mt-10 flex">
                     <a
                         href="/#noticias"
-                        class="bg-xc-azul text-center text-white rounded-[35px] px-8 py-3 font-manrope text-[16px] leading-normal font-normal hover:bg-xc-azul/75 transition-colors"
+                        class="bg-xc-azul text-center text-white rounded-[35px] px-6 sm:px-8 py-3 font-manrope text-sm sm:text-base md:text-[16px] leading-normal font-normal hover:bg-xc-azul/75 active:bg-xc-azul/90 transition-colors min-h-[44px] flex items-center justify-center"
                     >
                         ← Volver
                     </a>
