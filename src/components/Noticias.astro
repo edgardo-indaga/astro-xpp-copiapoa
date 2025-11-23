@@ -58,7 +58,7 @@ function slugify(text: string): string {
                             {card.date}
                         </p>
                         <h5 class="text-negro font-manrope text-base sm:text-lg md:text-[18px] leading-tight md:leading-[28px] font-bold ">
-                            {card.title}
+                            {card.title.slice(0, 90)}...
                         </h5>
                         <p class="text-negro font-manrope text-[16px] font-normal leading-normal flex-grow">
                             {card.extract.slice(0, 158)}...
