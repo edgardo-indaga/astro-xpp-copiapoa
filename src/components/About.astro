@@ -34,13 +34,14 @@ const teams: TeamInterface[] = [
 
 <section
     style={`background-image: url(${AboutImg.src}); background-size: cover; background-position: center;`}
-    class="py-[130px]"
+    class="py-10 sm:py-16 md:py-[130px]"
 >
-    <div class="container mx-auto">
-        <div class="grid grid-cols-2">
-            <div class="flex flex-col items-center justify-center gap-6 pr-[90px]">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <!-- Columna 1: Descripción -->
+            <div class="flex flex-col items-center justify-center gap-4 sm:gap-6 md:pr-[90px]">
                 <h1
-                    class="font-rubik text-white text-center text-[38px] leading-[44px] font-normal"
+                    class="font-rubik text-white text-center text-2xl sm:text-3xl md:text-[38px] leading-tight md:leading-[44px] font-normal"
                 >
                     QUIÉNES SOMOS
                 </h1>
@@ -56,20 +57,30 @@ const teams: TeamInterface[] = [
                     propagación y gestión ambiental.
                 </p>
             </div>
-            <div class="bg-xc-hueso rounded-[22px] p-[30px] flex flex-col gap-[25px]">
+
+            <!-- Columna 2: Equipo Directivo -->
+            <div
+                class="bg-xc-hueso rounded-[22px] p-[30px] flex flex-col gap-5 sm:gap-6 md:gap-[25px]"
+            >
                 <h4 class="font-rubik text-[16px] font-normal leading-normal uppercase">
                     Equipo Directivo
                 </h4>
 
                 {
                     teams.map((team) => (
-                        <div class="flex flex-row items-center">
-                            <Image src={team.image} alt={team.name} width={135} height={120} />
-                            <div class="pl-[35px]">
-                                <h4 class="font-manrope text-[20px] font-bold leading-normal">
+                        <div class="flex flex-row items-center gap-4">
+                            <Image
+                                src={team.image}
+                                alt={team.name}
+                                width={135}
+                                height={120}
+                                class="w-20 h-auto sm:w-28 md:w-[135px] flex-shrink-0"
+                            />
+                            <div class="flex-1">
+                                <h4 class="font-manrope text-base sm:text-lg md:text-[20px] font-bold leading-normal">
                                     {team.name}
                                 </h4>
-                                <p class="text-[16px] font-manrope font-normal leading-normal">
+                                <p class="text-[14px] md:text-[16px] font-manrope font-normal leading-normal">
                                     {team.position}
                                 </p>
                             </div>

@@ -63,8 +63,8 @@ const transformation = {
 };
 ---
 
-<section class="bg-xc-hueso py-[70px] h-[800px]">
-    <div class="container mx-auto">
+<section class="bg-xc-hueso py-8 sm:py-12 md:py-[70px] h-auto min-h-[400px] sm:min-h-[500px] md:h-[800px]">
+    <div class="container mx-auto px-4">
         <div class={`relative w-full max-w-full ${className}`}>
             <CldVideoPlayer
                 src={src}
@@ -89,6 +89,18 @@ const transformation = {
         height: auto !important;
     }
 
+    /* En mobile, hacer el video más cuadrado para ocupar más espacio */
+    @media (max-width: 767px) {
+        .cld-video-player {
+            aspect-ratio: 4 / 5 !important;
+        }
+
+        .cld-video-player video {
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+    }
+
     /* ============================================
        PERSONALIZACIÓN DEL BOTÓN DE PLAY
        Borde blanco 4px, fondo transparente
@@ -97,13 +109,13 @@ const transformation = {
     /* Base del botón de play */
     .vjs-big-play-button {
         /* Estructura visual */
-        border: 6px solid #ffffff !important;
+        border: 4px solid #ffffff !important;
         background-color: transparent !important;
         border-radius: 50%; /* Botón circular */
 
-        /* Tamaño */
-        width: 100px !important;
-        height: 100px !important;
+        /* Tamaño responsivo */
+        width: 60px !important;
+        height: 60px !important;
 
         /* Posicionamiento centrado fijo */
         position: absolute !important;
@@ -130,6 +142,23 @@ const transformation = {
         transition: all 0.3s ease-in-out;
     }
 
+    /* Tamaños responsivos del botón */
+    @media (min-width: 640px) {
+        .vjs-big-play-button {
+            width: 80px !important;
+            height: 80px !important;
+            border-width: 5px !important;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .vjs-big-play-button {
+            width: 100px !important;
+            height: 100px !important;
+            border-width: 6px !important;
+        }
+    }
+
     /* Estados hover */
     .vjs-big-play-button:hover,
     .video-js:hover .vjs-big-play-button,
@@ -145,8 +174,8 @@ const transformation = {
         /* Color del ícono */
         color: #ffffff;
 
-        /* Tamaño del ícono */
-        font-size: 2.5em;
+        /* Tamaño del ícono responsivo */
+        font-size: 1.5em;
 
         /* Remover sombras */
         text-shadow: none;
@@ -154,6 +183,19 @@ const transformation = {
         /* Centrado perfecto del ícono */
         display: block;
         line-height: 1;
+    }
+
+    /* Tamaño del ícono en pantallas más grandes */
+    @media (min-width: 640px) {
+        .vjs-big-play-button .vjs-icon-placeholder::before {
+            font-size: 2em;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .vjs-big-play-button .vjs-icon-placeholder::before {
+            font-size: 2.5em;
+        }
     }
 
     /* Estado hover del ícono */

@@ -1,19 +1,31 @@
 ---
 import CactusCopiapoaImg from "../assets/images/cactus_copiapoa.webp";
+import CactusCopiapoaMobileImg from "../assets/images/cactus_copiapoa_mobile.webp";
 ---
 
-<section
-    style={`background-image: url(${CactusCopiapoaImg.src}); background-size: cover; background-position: center;`}
-    class="py-20"
->
-    <div class="container mx-auto">
-        <div class="flex flex-col justify-center items-center h-[800px]">
+<section class="relative py-8 sm:py-12 md:py-20 overflow-hidden min-h-[80VH] md:h-[900px]">
+    <!-- Background con picture element -->
+    <picture class="absolute inset-0 z-0">
+        <source media="(max-width: 767px)" srcset={CactusCopiapoaMobileImg.src} />
+        <img
+            src={CactusCopiapoaImg.src}
+            alt="Cactus Copiapoa en su hábitat natural"
+            class="w-full h-full object-cover"
+        />
+    </picture>
+
+    <div class="container mx-auto relative z-10">
+        <div
+            class="flex flex-col justify-center items-center min-h-[500px] sm:min-h-[600px] md:h-[800px] px-4"
+        >
             <h1
-                class="font-rubik text-[80px] leading-[70px] font-normal text-xc-azul text-center w-[400px]"
+                class="font-rubik text-4xl sm:text-5xl md:text-6xl lg:text-[80px] leading-tight md:leading-[70px] font-normal text-xc-azul text-center w-full max-w-[400px]"
             >
                 Cactus Copiapoa
             </h1>
-            <div class="flex flex-col items-center justify-center gap-6 mt-[50px] w-[700px]">
+            <div
+                class="flex flex-col items-center justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 md:mt-[50px] w-full max-w-[90vw] sm:max-w-[600px] md:max-w-[700px] px-4"
+            >
                 <p class="text-negro font-manrope text-[16px] text-center">
                     Copiapoa es un <b>género de cactus endémico del desierto costero de Atacama</b>.
                     Existen más de treinta especies, muchas de ellas con distribuciones

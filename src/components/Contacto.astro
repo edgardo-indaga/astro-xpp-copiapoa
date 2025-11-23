@@ -9,46 +9,57 @@ import logoSponsor03 from "../assets/images/iconoFooter03.png";
 import logoSponsor04 from "../assets/images/iconoFooter04.png";
 ---
 
-<section class="bg-xc-negro py-[60px]">
-    <div class="container mx-auto">
-        <div class="grid grid-cols-3">
-            <div class="col-span-1">
-                <Image src={logoContacto} alt="Logo Contacto" width={230} height={126} />
+<section class="bg-xc-negro py-8 sm:py-10 md:py-[60px]">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
+            <!-- Columna 1: Logo y sponsors -->
+            <div class="col-span-1 flex flex-col items-center md:items-start">
+                <Image
+                    src={logoContacto}
+                    alt="Logo Contacto"
+                    width={230}
+                    height={126}
+                    class="w-48 sm:w-52 md:w-[230px] h-auto"
+                />
                 <div
-                    class="flex flex-wrap gap-2 border-t-1 border-[#6A6A6A] mt-[16px] pt-[16px] items-center"
+                    class="flex flex-wrap gap-2 justify-center md:justify-start border-t-1 border-[#6A6A6A] mt-4 pt-4 items-center w-full"
                 >
                     <Image
                         src={logoSponsor01}
                         alt="Logo Sponsor"
                         width={90}
                         height={36}
-                        class="w-[90px] h-[36px]"
+                        class="w-20 sm:w-[90px] h-auto"
                     />
                     <Image
                         src={logoSponsor02}
                         alt="Logo Sponsor"
                         width={60}
                         height={40}
-                        class="w-[60px] h-[40px]"
+                        class="w-14 sm:w-[60px] h-auto"
                     />
                     <Image
                         src={logoSponsor03}
                         alt="Logo Sponsor"
                         width={144}
                         height={16}
-                        class="w-[144px] h-[16px]"
+                        class="w-32 sm:w-[144px] h-auto"
                     />
                     <Image
                         src={logoSponsor04}
                         alt="Logo Sponsor"
                         width={54}
                         height={54}
-                        class="w-[54px] h-[54px]"
+                        class="w-12 sm:w-[54px] h-auto"
                     />
                 </div>
             </div>
-            <div class="col-span-1"></div>
-            <div class="col-span-1">
+
+            <!-- Columna vacía solo en desktop -->
+            <div class="hidden md:block md:col-span-1"></div>
+
+            <!-- Columna 3: Formulario de contacto -->
+            <div class="col-span-1" id="contacto">
                 <FormContacto />
             </div>
         </div>
