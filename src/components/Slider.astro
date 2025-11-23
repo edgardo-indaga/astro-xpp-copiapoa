@@ -4,6 +4,7 @@ import type { ImageMetadata } from "astro";
 
 interface Slide {
     image: string | ImageMetadata;
+    mobileImage?: string | ImageMetadata;
     alt: string;
 }
 
@@ -30,7 +31,36 @@ const { slides, title, buttonText, buttonLink = "#", autoPlayInterval = 5000 } =
                     ]}
                     data-slide-index={index}
                 >
-                    {typeof slide.image === "string" ? (
+                    {slide.mobileImage ? (
+                        <picture class="w-full h-full">
+                            {/* Imagen mobile */}
+                            {typeof slide.mobileImage === "string" ? (
+                                <source media="(max-width: 767px)" srcset={slide.mobileImage} />
+                            ) : (
+                                <source
+                                    media="(max-width: 767px)"
+                                    srcset={slide.mobileImage.src}
+                                />
+                            )}
+                            {/* Imagen desktop */}
+                            {typeof slide.image === "string" ? (
+                                <img
+                                    src={slide.image}
+                                    alt={slide.alt}
+                                    class="w-full h-full object-cover"
+                                />
+                            ) : (
+                                <Image
+                                    src={slide.image}
+                                    alt={slide.alt}
+                                    class="w-full h-full object-cover"
+                                    widths={[400, 800, 1200, 1600, 2000]}
+                                    sizes="100vw"
+                                    loading={index === 0 ? "eager" : "lazy"}
+                                />
+                            )}
+                        </picture>
+                    ) : typeof slide.image === "string" ? (
                         <img src={slide.image} alt={slide.alt} class="w-full h-full object-cover" />
                     ) : (
                         <Image

@@ -12,20 +12,25 @@ import Contacto from "../components/Contacto.astro";
 import sliderUno from "../assets/images/slider_1.webp";
 import sliderDos from "../assets/images/slider_2.webp";
 import sliderTres from "../assets/images/slider_3.webp";
+import sliderUnoMobile from "../assets/images/slider_1_mobil.webp";
+import sliderDosMobile from "../assets/images/slider_2_mobil.webp";
+import sliderTresMobile from "../assets/images/slider_3_mobil.webp";
 
-// Define las 3 imágenes para el slider
-// IMPORTANTE: Reemplaza estas rutas con tus imágenes de cactus Copiapoa
+// Define las 3 imágenes para el slider (desktop y mobile)
 const slides = [
     {
         image: sliderUno,
+        mobileImage: sliderUnoMobile,
         alt: "Cactus Copiapoa en su hábitat natural",
     },
     {
         image: sliderDos,
+        mobileImage: sliderDosMobile,
         alt: "Conservación de cactus Copiapoa",
     },
     {
         image: sliderTres,
+        mobileImage: sliderTresMobile,
         alt: "Prevención de la extinción de Copiapoa",
     },
 ];
@@ -43,7 +48,7 @@ const slides = [
     <Centinelas />
     <Video src="copiapoa-2_ciy1fr" />
     <WeDo />
-    <Noticias id="noticias" />
+    <Noticias />
     <About />
     <Contacto />
 </Layout>
