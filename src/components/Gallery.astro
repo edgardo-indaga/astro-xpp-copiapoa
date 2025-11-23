@@ -1,0 +1,194 @@
+---
+import { Image, getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+    images: ImageMetadata[];
+}
+
+const { images } = Astro.props;
+
+// Generar URLs optimizadas para las imágenes en alta resolución
+const highResImages = await Promise.all(
+    images.map((img) =>
+        getImage({
+            src: img,
+            width: 2000,
+            height: 1333,
+            format: "webp",
+        })
+    )
+);
+---
+
+{
+    images && images.length > 0 && (
+        <div class="gallery-container my-[25px]">
+            <div class="gallery-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {images.map((image, index) => (
+                    <button
+                        type="button"
+                        class="gallery-item cursor-pointer overflow-hidden rounded-[10px] aspect-square hover:opacity-75 transition-opacity"
+                        data-index={index}
+                        data-full-src={highResImages[index].src}
+                        data-full-width={highResImages[index].attributes.width}
+                        data-full-height={highResImages[index].attributes.height}
+                    >
+                        <Image
+                            src={image}
+                            alt={`Imagen de galería ${index + 1}`}
+                            width={226}
+                            height={226}
+                            class="w-full h-full object-cover"
+                        />
+                    </button>
+                ))}
+            </div>
+
+            <!-- Modal/Lightbox -->
+            <div
+                id="gallery-modal"
+                class="fixed inset-0 bg-negro/90 z-50 hidden items-center justify-center p-4"
+            >
+                <div class="relative max-w-5xl max-h-[90vh] w-full h-full flex items-center justify-center">
+                    <!-- Botón cerrar -->
+                    <button
+                        type="button"
+                        id="close-modal"
+                        class="absolute top-4 right-4 text-white text-[40px] leading-none hover:text-xc-gris transition-colors z-10"
+                        aria-label="Cerrar"
+                    >
+                        &times;
+                    </button>
+
+                    <!-- Botón anterior -->
+                    <button
+                        type="button"
+                        id="prev-image"
+                        class="absolute left-4 text-white text-[40px] leading-none hover:text-xc-gris transition-colors z-10"
+                        aria-label="Imagen anterior"
+                    >
+                        &#8249;
+                    </button>
+
+                    <!-- Imagen -->
+                    <div class="flex flex-col items-center justify-center w-full h-full">
+                        <div id="modal-image-container" class="max-w-full max-h-full" />
+                        <!-- Contador -->
+                        <p
+                            id="image-counter"
+                            class="text-white text-[14px] font-manrope mt-4"
+                        />
+                    </div>
+
+                    <!-- Botón siguiente -->
+                    <button
+                        type="button"
+                        id="next-image"
+                        class="absolute right-4 text-white text-[40px] leading-none hover:text-xc-gris transition-colors z-10"
+                        aria-label="Imagen siguiente"
+                    >
+                        &#8250;
+                    </button>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+<script>
+    const galleryItems = document.querySelectorAll(".gallery-item");
+    const modal = document.getElementById("gallery-modal");
+    const closeBtn = document.getElementById("close-modal");
+    const prevBtn = document.getElementById("prev-image");
+    const nextBtn = document.getElementById("next-image");
+    const imageContainer = document.getElementById("modal-image-container");
+    const imageCounter = document.getElementById("image-counter");
+
+    let currentIndex = 0;
+    let totalImages = galleryItems.length;
+
+    // Función para mostrar imagen en el modal
+    function showImage(index: number) {
+        currentIndex = index;
+
+        // Obtener datos de la imagen en alta resolución
+        const button = galleryItems[index] as HTMLElement;
+        const fullSrc = button.dataset.fullSrc;
+        const thumbnail = button.querySelector("img");
+
+        if (!fullSrc || !thumbnail) return;
+
+        // Crear nueva imagen para el modal
+        imageContainer!.innerHTML = "";
+        const modalImage = document.createElement("img");
+        modalImage.src = fullSrc;
+        modalImage.alt = thumbnail.alt;
+        modalImage.className = "max-w-full max-h-[80vh] w-auto h-auto object-contain";
+        imageContainer!.appendChild(modalImage);
+
+        // Actualizar contador
+        imageCounter!.textContent = `${index + 1} / ${totalImages}`;
+    }
+
+    // Función para abrir modal
+    function openModal(index: number) {
+        showImage(index);
+        modal!.classList.remove("hidden");
+        modal!.classList.add("flex");
+        document.body.style.overflow = "hidden";
+    }
+
+    // Función para cerrar modal
+    function closeModal() {
+        modal!.classList.add("hidden");
+        modal!.classList.remove("flex");
+        document.body.style.overflow = "";
+    }
+
+    // Función para navegar a la imagen anterior
+    function prevImage() {
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : totalImages - 1;
+        showImage(currentIndex);
+    }
+
+    // Función para navegar a la imagen siguiente
+    function nextImage() {
+        currentIndex = currentIndex < totalImages - 1 ? currentIndex + 1 : 0;
+        showImage(currentIndex);
+    }
+
+    // Event listeners para los thumbnails
+    galleryItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            openModal(index);
+        });
+    });
+
+    // Event listener para cerrar modal
+    closeBtn?.addEventListener("click", closeModal);
+
+    // Event listeners para navegación
+    prevBtn?.addEventListener("click", prevImage);
+    nextBtn?.addEventListener("click", nextImage);
+
+    // Cerrar modal al hacer clic fuera de la imagen
+    modal?.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Navegación con teclado
+    document.addEventListener("keydown", (e) => {
+        if (!modal?.classList.contains("hidden")) {
+            if (e.key === "Escape") {
+                closeModal();
+            } else if (e.key === "ArrowLeft") {
+                prevImage();
+            } else if (e.key === "ArrowRight") {
+                nextImage();
+            }
+        }
+    });
+</script>

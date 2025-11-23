@@ -17,6 +17,7 @@
     --color-white-off: #fbfbfb;
     --color-negro: #080808;
     --color-xc-negro: #2a2a2a;
+    --color-xc-gris: #8b8b8b;
 
     /* Configuración personalizada del container */
     --breakpoint-sm: 640px;
