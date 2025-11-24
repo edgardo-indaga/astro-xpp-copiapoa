@@ -50,7 +50,7 @@ const Items: ItemsDoInterface[] = [
     <div class="container mx-auto px-4">
         <div class="flex flex-col items-center justify-center">
             <h1
-                class="font-rubik text-xc-hueso text-center text-2xl sm:text-3xl md:text-[38px] leading-tight md:leading-[44px] font-normal py-8 sm:py-10 md:py-[60px]"
+                class="font-dunkel-expanded text-xc-hueso text-center text-2xl sm:text-3xl md:text-[38px] leading-tight md:leading-[44px] font-normal py-8 sm:py-10 md:py-[60px] subpixel-antialiased"
             >
                 ¿QUÉ HACEMOS?
             </h1>
@@ -66,13 +66,10 @@ const Items: ItemsDoInterface[] = [
                             height={73}
                             class="w-14 h-14 sm:w-16 sm:h-16 md:w-[73px] md:h-[73px]"
                         />
-                        <h4 class="font-rubik text-xc-azul text-[18px] leading-tight md:leading-[28px] py-3 sm:py-4 md:py-[15px]">
+                        <h4 class="font-dunkel-expanded text-xc-azul text-[18px] leading-tight md:leading-[28px] py-3 sm:py-4 md:py-[15px] subpixel-antialiased">
                             {item.title}
                         </h4>
-                        <p
-                            set:html={item.description}
-                            class="font-manrope text-[14px] font-normal leading-normal flex-grow"
-                        />
+                        <p set:html={item.description} class="caption" />
                     </div>
                 ))
             }

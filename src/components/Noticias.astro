@@ -38,7 +38,7 @@ function slugify(text: string): string {
     <div class="container mx-auto relative z-10 px-4">
         <div class="flex flex-col items-center justify-center py-8 sm:py-10 md:py-[60px]">
             <h1
-                class="font-rubik text-xc-azul text-center text-2xl sm:text-3xl md:text-[38px] leading-tight md:leading-[44px] font-normal"
+                class="font-dunkel-expanded text-xc-azul text-center text-2xl sm:text-3xl md:text-[38px] leading-tight md:leading-[44px] font-normal subpixel-antialiased"
             >
                 CONSERVACIÓN EN ACCIÓN
             </h1>
@@ -54,18 +54,14 @@ function slugify(text: string): string {
                             height={1333}
                             class="rounded-[10px] w-full h-[140px] sm:h-[160px] md:w-[420px] md:h-[160px] object-cover bg-cover object-center"
                         />
-                        <p class="text-[#8B8B8B] text-xs sm:text-sm md:text-[14px] font-manrope leading-normal">
-                            {card.date}
-                        </p>
+                        <p class="text-[#8B8B8B] caption">{card.date}</p>
                         <h5 class="text-negro font-manrope text-base sm:text-lg md:text-[18px] leading-tight md:leading-[28px] font-bold ">
                             {card.title.slice(0, 90)}...
                         </h5>
-                        <p class="text-negro font-manrope text-[16px] font-normal leading-normal flex-grow">
-                            {card.extract.slice(0, 158)}...
-                        </p>
+                        <p class="text-negro parrafo">{card.extract.slice(0, 158)}...</p>
                         <a
                             href={`/noticias/${slugify(card.title)}`}
-                            class="bg-xc-azul text-center text-white rounded-[35px] py-3 px-6 md:p-[10px] font-manrope text-[16px] leading-normal font-normal hover:bg-xc-azul/75 active:bg-xc-azul/90 transition-colors min-h-[44px] flex items-center justify-center"
+                            class="bg-xc-azul text-center text-white rounded-[35px] py-3 px-6 md:p-[10px] font-manrope text-[16px] leading-normal font-normal hover:bg-xc-azul/75 active:bg-xc-azul/90 transition-colors min-h-[44px] flex items-center justify-center subpixel-antialiased"
                         >
                             Leer más
                         </a>

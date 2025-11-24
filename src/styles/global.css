@@ -1,6 +1,7 @@
 @import "@fontsource-variable/cormorant";
 @import "@fontsource-variable/work-sans";
 @import "@fontsource/rubik-one";
+@import "https://use.typekit.net/dje2atn.css";
 
 @import "tailwindcss";
 
@@ -9,6 +10,9 @@
     --font-manrope: "Manrope", sans-serif;
     --font-cormorant: "Cormorant Variable", serif;
     --font-work-sans: "Work Sans Variable", sans-serif;
+    --font-dunkel-cond: "dunkel-sans-cond-rounded", sans-serif;
+    --font-dunkel-semicond: "dunkel-sans-semicond-rounded", sans-serif;
+    --font-dunkel-expanded: "dunkel-sans-expanded-rounded", sans-serif;
 
     --color-xc-azul: #3a778b;
     --color-xc-verde: #5f6b54;
@@ -25,4 +29,13 @@
     --breakpoint-lg: 1024px;
     --breakpoint-xl: 1160px;
     --breakpoint-2xl: 1160px; /* Tu máximo personalizado */
+}
+
+@layer components {
+    .parrafo {
+        @apply font-manrope text-[16px] font-normal leading-normal subpixel-antialiased;
+    }
+    .caption {
+        @apply font-manrope text-[14px] font-normal leading-normal subpixel-antialiased;
+    }
 }

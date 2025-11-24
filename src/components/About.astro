@@ -41,17 +41,17 @@ const teams: TeamInterface[] = [
             <!-- Columna 1: Descripción -->
             <div class="flex flex-col items-center justify-center gap-4 sm:gap-6 md:pr-[90px]">
                 <h1
-                    class="font-rubik text-white text-center text-2xl sm:text-3xl md:text-[38px] leading-tight md:leading-[44px] font-normal"
+                    class="font-dunkel-expanded text-white text-center text-2xl sm:text-3xl md:text-[38px] leading-tight md:leading-[44px] font-normal subpixel-antialiased"
                 >
                     QUIÉNES SOMOS
                 </h1>
-                <p class="text-[16px] font-manrope leading-normal font-normal text-white">
+                <p class="parrafo text-white">
                     El Programa de Prevención de Extinciones XPP Copiapoa, está liderado por la
                     consultora Cienciambiental, el Instituto de Ecología y Biodiversidad (IEB) y la
                     empresa B Insular Chile, y que cuenta con el apoyo del fondo de inversión social
                     de BHP.
                 </p>
-                <p class="text-[16px] font-manrope leading-normal font-normal text-white">
+                <p class="parrafo text-white">
                     La ejecución del proyecto está a cargo de un equipo multidisciplinario de más de
                     20 profesionales en áreas como ecología, conservación ex situ, restauración,
                     propagación y gestión ambiental.
@@ -62,7 +62,9 @@ const teams: TeamInterface[] = [
             <div
                 class="bg-xc-hueso rounded-[22px] p-[30px] flex flex-col gap-5 sm:gap-6 md:gap-[25px]"
             >
-                <h4 class="font-rubik text-[16px] font-normal leading-normal uppercase">
+                <h4
+                    class="font-dunkel-expanded text-[16px] font-normal leading-normal uppercase subpixel-antialiased"
+                >
                     Equipo Directivo
                 </h4>
 
@@ -80,9 +82,7 @@ const teams: TeamInterface[] = [
                                 <h4 class="font-manrope text-base sm:text-lg md:text-[20px] font-bold leading-normal">
                                     {team.name}
                                 </h4>
-                                <p class="text-[14px] md:text-[16px] font-manrope font-normal leading-normal">
-                                    {team.position}
-                                </p>
+                                <p class="caption">{team.position}</p>
                             </div>
                         </div>
                     ))
