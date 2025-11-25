@@ -1,11 +1,11 @@
+@import "https://use.typekit.net/dje2atn.css";
+@import "tailwindcss";
 @import "@fontsource-variable/cormorant";
 @import "@fontsource-variable/work-sans";
 @import "@fontsource/rubik-one";
-@import "https://use.typekit.net/dje2atn.css";
-
-@import "tailwindcss";
 
 @theme {
+    /* Fuentes personalizadas */
     --font-rubik: "Rubik One", sans-serif;
     --font-manrope: "Manrope", sans-serif;
     --font-cormorant: "Cormorant Variable", serif;
@@ -14,6 +14,7 @@
     --font-dunkel-semicond: "dunkel-sans-semicond-rounded", sans-serif;
     --font-dunkel-expanded: "dunkel-sans-expanded-rounded", sans-serif;
 
+    /* Colores personalizados */
     --color-xc-azul: #3a778b;
     --color-xc-verde: #5f6b54;
     --color-xc-hueso: #e7e3da;
@@ -23,12 +24,12 @@
     --color-xc-negro: #2a2a2a;
     --color-xc-gris: #8b8b8b;
 
-    /* Configuración personalizada del container */
+    /* Breakpoints personalizados */
     --breakpoint-sm: 640px;
     --breakpoint-md: 768px;
     --breakpoint-lg: 1024px;
     --breakpoint-xl: 1160px;
-    --breakpoint-2xl: 1160px; /* Tu máximo personalizado */
+    --breakpoint-2xl: 1160px;
 }
 
 @layer components {
