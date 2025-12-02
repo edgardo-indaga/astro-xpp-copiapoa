@@ -12,6 +12,7 @@ import Contacto from "../components/Contacto.astro";
 import sliderUno from "../assets/images/slider_1.webp";
 import sliderDos from "../assets/images/slider_2.webp";
 import sliderTres from "../assets/images/slider_3.webp";
+import sliderCuatro from "../assets/images/portada-noticias-dos.webp";
 import sliderUnoMobile from "../assets/images/slider_1_mobil.webp";
 import sliderDosMobile from "../assets/images/slider_2_mobil.webp";
 import sliderTresMobile from "../assets/images/slider_3_mobil.webp";
@@ -22,16 +23,33 @@ const slides = [
         image: sliderUno,
         mobileImage: sliderUnoMobile,
         alt: "Cactus Copiapoa en su hábitat natural",
+        title: "Prevención de la extinción de los cactus Copiapoa",
+        buttonText: "¿Qué hacemos?",
+        buttonLink: "#que-hacemos",
+    },
+    {
+        image: sliderCuatro,
+        mobileImage: sliderCuatro,
+        alt: "Revive el Seminario \"Ecosistemas en Peligro: Salvaguardando el Desierto\"",
+        title: "Revive el Seminario \"Ecosistemas en Peligro: Salvaguardando el Desierto\"",
+        buttonText: "Conocer más",
+        buttonLink: "/noticias/revive-el-seminario-ecosistemas-en-peligro-salvaguardando-el-desierto",
     },
     {
         image: sliderDos,
         mobileImage: sliderDosMobile,
         alt: "Conservación de cactus Copiapoa",
+        title: "Protegiendo la biodiversidad del desierto de Atacama",
+        buttonText: "Conocer más",
+        buttonLink: "#cactus-copiapoa",
     },
     {
         image: sliderTres,
         mobileImage: sliderTresMobile,
         alt: "Prevención de la extinción de Copiapoa",
+        title: "Únete a la conservación de especies endémicas",
+        buttonText: "Contáctanos",
+        buttonLink: "#contacto",
     },
 ];
 ---
