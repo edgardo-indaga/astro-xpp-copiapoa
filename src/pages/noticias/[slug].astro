@@ -19,7 +19,7 @@ const { noticia } = Astro.props;
 
 <Layout title={noticia.title}>
     <section class="bg-xc-hueso">
-        <div class="container mx-auto px-4 pb-10 sm:pb-12 md:pb-[60px]">
+        <div class="container mx-auto px-4 ">
             <!-- Breadcrumbs -->
             <nav class="text-xs sm:text-sm md:text-[14px] font-manrope text-xc-negro py-3 md:py-4" aria-label="Breadcrumb">
                 <ol class="list-reset flex flex-wrap">
@@ -44,7 +44,9 @@ const { noticia } = Astro.props;
                     class="rounded-[10px] w-full object-cover shadow-lg h-[200px] sm:h-[280px] md:h-[330px]"
                 />
             </div>
+        </div>
 
+        <div class="container mx-auto px-4 pb-10 sm:pb-12 md:pb-[60px] md:max-w-[1080px]">
             <div>
                 <!-- Fecha -->
                 <p class="text-xc-gris text-xs sm:text-sm md:text-[14px] font-manrope leading-normal py-4 sm:py-5 md:py-[25px]">
