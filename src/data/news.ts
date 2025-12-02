@@ -12,7 +12,37 @@ interface News {
 import Noticia01Item01 from "../assets/images/noticias/noticias-01-item01.webp";
 import Noticia01Item02 from "../assets/images/noticias/noticias-01-item02.webp";
 
+import PortadaNoticiaDos from "../assets/images/noticias/noticias-dos/portada-noticias-dos.webp";
+import Noticia02Item01 from "../assets/images/noticias/noticias-dos/noticia-02-01.webp";
+import Noticia02Item02 from "../assets/images/noticias/noticias-dos/noticia-02-02.webp";
+import Noticia02Item03 from "../assets/images/noticias/noticias-dos/noticia-02-03.webp";
+import Noticia02Item04 from "../assets/images/noticias/noticias-dos/noticia-02-04.webp";
+import Noticia02Item05 from "../assets/images/noticias/noticias-dos/noticia-02-05.webp";
+import Noticia02Item06 from "../assets/images/noticias/noticias-dos/noticia-02-06.webp";
+import Noticia02Item07 from "../assets/images/noticias/noticias-dos/noticia-02-07.webp";
+import Noticia02Item08 from "../assets/images/noticias/noticias-dos/noticia-02-08.webp";
+import Noticia02Item09 from "../assets/images/noticias/noticias-dos/noticia-02-09.webp";
+import Noticia02Item10 from "../assets/images/noticias/noticias-dos/noticia-02-10.webp";
+import Noticia02Item11 from "../assets/images/noticias/noticias-dos/noticia-02-11.webp";
+import Noticia02Item12 from "../assets/images/noticias/noticias-dos/noticia-02-12.webp";
+import Noticia02Item13 from "../assets/images/noticias/noticias-dos/noticia-02-13.webp";
+import Noticia02Item14 from "../assets/images/noticias/noticias-dos/noticia-02-14.webp";
+import Noticia02Item15 from "../assets/images/noticias/noticias-dos/noticia-02-15.webp";
+import Noticia02Item16 from "../assets/images/noticias/noticias-dos/noticia-02-16.webp";
+import Noticia02Item17 from "../assets/images/noticias/noticias-dos/noticia-02-17.webp";
+import Noticia02Item18 from "../assets/images/noticias/noticias-dos/noticia-02-18.webp";
+import Noticia02Item19 from "../assets/images/noticias/noticias-dos/noticia-02-19.webp";
+
 export const newsCards: News[] = [
+    {
+        image: PortadaNoticiaDos,
+        date: "25 y 26 de noviembre de 2025",
+        title: "Revive el Seminario \"Ecosistemas en Peligro: Salvaguardando el Desierto\"",
+        extract:
+            "El Seminario Ecosistemas en Peligro reunió a expertos en Copiapó y lanzó el Programa XPP Copiapoa, iniciativa para proteger los cactus del desierto.",
+        description: `Más de 70 participantes, junto a decenas de asistentes vía streaming, formaron parte del Seminario Ecosistemas en Peligro: Salvaguardando el Desierto, realizado el 25 y 26 de noviembre en Copiapó. La actividad reunió a especialistas, organizaciones locales y representantes del sector público y privado para reflexionar sobre los desafíos urgentes que enfrenta la biodiversidad del desierto de Atacama y fortalecer las acciones de conservación en el territorio.<br><br>Durante dos jornadas se realizaron conferencias magistrales, paneles de conversación y una salida a terreno por el desierto costero entre Totoral y Carrizal, donde las y los participantes pudieron observar en primera persona la riqueza ecológica del paisaje y las amenazas que afectan a especies únicas de la zona.<br><br>Quienes no pudieron asistir —o quienes deseen revisarlo nuevamente— pueden ver fotos y videos que resumen el seminario directamente en esta página.<br><br>El encuentro también marcó el lanzamiento del Programa XPP Copiapoa, una iniciativa de Prevención de Extinciones que busca proteger a las especies del género Copiapoa —cactus endémicos del desierto costero de Atacama— mediante investigación aplicada, acciones de restauración ecológica y trabajo con comunidades locales. Su objetivo es enfrentar las amenazas que afectan a estas especies, como el cambio climático, la pérdida de hábitat y el tráfico ilegal.<br><br><div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/lnsIjrlf53Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><br><div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/wY4MTRMTGQA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><br><div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/KTdevbBrlSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><br><div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/x0wdrXI2xT8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><br><div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/0O98zsH-UCw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`,
+        gallery: [Noticia02Item01, Noticia02Item02, Noticia02Item03, Noticia02Item04, Noticia02Item05, Noticia02Item06, Noticia02Item07, Noticia02Item08, Noticia02Item09, Noticia02Item10, Noticia02Item11, Noticia02Item12, Noticia02Item13, Noticia02Item14, Noticia02Item15, Noticia02Item16, Noticia02Item17, Noticia02Item18, Noticia02Item19],
+    },
     {
         image: Noticia01Item01,
         date: "21 de noviembre de 2025",

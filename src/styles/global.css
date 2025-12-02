@@ -39,4 +39,10 @@
     .caption {
         @apply font-manrope text-[14px] font-normal leading-normal subpixel-antialiased;
     }
+    .video-container {
+        @apply mx-auto my-4 flex justify-center items-center;
+    }
+    .video-container iframe {
+        @apply max-w-full h-[350px] rounded-[10px];
+    }
 }
